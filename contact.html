@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Meridian Export &amp; Freight Forwarding</title>
+<meta name="description" content="Reach the Meridian team at our Rotterdam headquarters or one of 48 agent offices. Request a quote, track a shipment, or ask a question.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="site-nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 26L20 6L36 26" stroke="#D9A24A" stroke-width="2"/>
+        <path d="M8 26H32L29 34H11L8 26Z" stroke="#EDEAE2" stroke-width="2" stroke-linejoin="round"/>
+        <line x1="20" y1="6" x2="20" y2="26" stroke="#EDEAE2" stroke-width="2"/>
+      </svg>
+      <span>
+        <span class="brand-name">MERIDIAN</span>
+        <span class="brand-tag">EXPORT &amp; FREIGHT</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="products.html">Products &amp; Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="products.html#quote" class="btn btn-primary">Get a Quote</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ SUB HERO ============ -->
+<header class="sub-hero">
+  <div class="wrap sub-hero-grid">
+    <div>
+      <span class="eyebrow">Talk to a forwarder, not a call queue</span>
+      <h1 class="h-xl">Get in<br>touch.</h1>
+    </div>
+    <p class="lede">Whether you're chasing a rate, tracking a container, or reporting an issue with a live shipment, you'll reach someone who can actually act on it.</p>
+  </div>
+</header>
+
+<!-- ============ CONTACT CARDS ============ -->
+<section class="bg-light on-light" style="padding-top:80px;">
+  <div class="wrap">
+    <div class="card-grid reveal-stagger" style="grid-template-columns:repeat(3,1fr);">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 40 40" fill="none"><path d="M8 16C8 9.37 13.37 4 20 4C26.63 4 32 9.37 32 16C32 24 20 36 20 36C20 36 8 24 8 16Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="20" cy="16" r="5" stroke="currentColor" stroke-width="1.8"/></svg>
+        </div>
+        <h3>Head Office</h3>
+        <p>Wilhelminakade 12<br>3072 AP Rotterdam<br>The Netherlands</p>
+        <span class="service-tag">Mon–Fri · 08:00–18:00 CET</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 40 40" fill="none"><path d="M10 6H15L18 14L14 17C15.5 20.5 19.5 24.5 23 26L26 22L34 25V30C34 32.21 32.21 34 30 34C17.85 34 6 22.15 6 10C6 7.79 7.79 6 10 6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Phone</h3>
+        <p>General: +31 10 555 0142<br>Ops desk (24/7): +31 10 555 0199</p>
+        <span class="service-tag">Emergency line always staffed</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 40 40" fill="none"><rect x="5" y="9" width="30" height="22" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M6 11L20 22L34 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Email</h3>
+        <p>Quotes: cargo@meridianexport.example<br>Tracking: ops@meridianexport.example</p>
+        <span class="service-tag">Reply within 1 business day</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORM + MAP ============ -->
+<section class="bg-navy on-navy">
+  <div class="wrap" style="display:grid; grid-template-columns:1.1fr .9fr; gap:50px; align-items:start;">
+
+    <div class="quote-panel reveal">
+      <span class="eyebrow" style="margin-bottom:16px; display:inline-flex;">Send a message</span>
+      <h2 class="h-md" style="margin-bottom:26px;">We'll route it to the right desk.</h2>
+      <form id="contact-form" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="cf-name">Full name</label>
+            <input id="cf-name" name="name" type="text" placeholder="Jordan Miles" required>
+          </div>
+          <div class="field">
+            <label for="cf-email">Email</label>
+            <input id="cf-email" name="email" type="email" placeholder="jordan@company.com" required>
+          </div>
+          <div class="field full">
+            <label for="cf-subject">Subject</label>
+            <select id="cf-subject" name="subject" required>
+              <option value="">Select a topic</option>
+              <option>New shipment quote</option>
+              <option>Track an existing shipment</option>
+              <option>Customs / documentation question</option>
+              <option>Billing</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" placeholder="How can we help?" required></textarea>
+          </div>
+        </div>
+        <div style="margin-top:26px;">
+          <button type="submit" class="btn btn-primary">Send Message</button>
+          <p class="form-note">Existing shipment? Include your booking reference for a faster reply.</p>
+        </div>
+        <div class="form-success">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#5FBE7A" stroke-width="1.4"/><path d="M5.5 9L8 11.5L13 6" stroke="#5FBE7A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Message sent — we'll be in touch within one business day.</span>
+        </div>
+      </form>
+    </div>
+
+    <div class="reveal">
+      <div class="route-card" style="margin-bottom:24px;">
+        <div class="route-card-head">
+          <span class="from-to">MERIDIAN HQ</span>
+          <span class="status">Open now</span>
+        </div>
+        <svg viewBox="0 0 400 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="220" fill="#0B1E2E"/>
+          <path d="M0 150 C 60 130, 90 170, 150 150 S 260 120, 320 150 S 380 170, 400 150" stroke="#2A5170" stroke-width="1.5" fill="none"/>
+          <path d="M0 175 C 70 160, 110 190, 170 170 S 280 150, 340 175 S 390 185, 400 175" stroke="#1E3E56" stroke-width="1.5" fill="none"/>
+          <circle cx="205" cy="95" r="5" fill="#D9A24A"/>
+          <circle class="route-pulse" cx="205" cy="95" r="4" fill="none" stroke="#D9A24A" stroke-width="1.5" style="animation:pulse 3.4s cubic-bezier(.22,.68,.36,1) infinite;"/>
+          <path d="M205 95 L205 65" stroke="#D9A24A" stroke-width="1.5"/>
+          <path d="M198 65H212L205 52Z" fill="#D9A24A"/>
+          <circle cx="90" cy="120" r="2.5" fill="#EDEAE2" opacity="0.6"/>
+          <circle cx="320" cy="130" r="2.5" fill="#EDEAE2" opacity="0.6"/>
+          <circle cx="260" cy="75" r="2.5" fill="#EDEAE2" opacity="0.6"/>
+        </svg>
+        <div class="route-meta">
+          <span>PORT <b>ROTTERDAM</b></span>
+          <span>ZONE <b>CET / UTC+1</b></span>
+          <span>STATUS <b>STAFFED</b></span>
+        </div>
+      </div>
+
+      <div class="value-card" style="border-top:1px solid var(--steel); padding-top:24px;">
+        <h3>Agent network</h3>
+        <p>Can't reach Rotterdam directly? We have staffed agent offices across 48 countries — ask your account manager for the nearest desk, or mention your region in the message form.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="bg-light on-light">
+  <div class="wrap" style="max-width:840px;">
+    <div class="section-head reveal">
+      <span class="eyebrow">Before you write in</span>
+      <h2 class="h-lg">Quick answers.</h2>
+    </div>
+    <div class="accordion reveal">
+      <div class="accordion-item open">
+        <button class="accordion-btn">
+          <span class="aq-left"><span class="aq-num">01</span><h3>How fast will I get a quote?</h3></span>
+          <span class="accordion-plus"></span>
+        </button>
+        <div class="accordion-body" style="max-height:200px;">
+          <div class="accordion-body-in">Most quote requests submitted through the site are answered within one business day, often the same afternoon for standard ocean and air lanes.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span class="aq-left"><span class="aq-num">02</span><h3>Can I track a shipment that's already booked?</h3></span>
+          <span class="accordion-plus"></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-in">Yes — email ops@meridianexport.example with your booking reference, or call the 24/7 ops desk for live status on any active shipment.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span class="aq-left"><span class="aq-num">03</span><h3>Do you handle customs clearance in the destination country too?</h3></span>
+          <span class="accordion-plus"></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-in">In most of our 48 countries, yes, either directly or through a partner broker. Mention the destination in your message and we'll confirm coverage.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span class="aq-left"><span class="aq-num">04</span><h3>What do you need from me to start a quote?</h3></span>
+          <span class="accordion-plus"></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-in">Origin, destination, rough cargo dimensions or weight, and a target ship date. The more detail up front, the tighter the rate we can lock in.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<section class="cta-band">
+  <div class="wrap cta-band-inner">
+    <div>
+      <span class="eyebrow">Ready to move cargo?</span>
+      <h2 class="h-md" style="margin-top:14px;">Skip the message — get a locked rate instead.</h2>
+    </div>
+    <a href="products.html#quote" class="btn btn-primary">Get a Quote</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-name" style="color:#EDEAE2;">MERIDIAN</span>
+        <p>Export and freight forwarding across ocean, air, rail and road — headquartered at the Port of Rotterdam with agents in 48 countries.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="products.html">Products &amp; Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="products.html">Ocean Freight</a></li>
+          <li><a href="products.html">Air Freight</a></li>
+          <li><a href="products.html">Customs Brokerage</a></li>
+          <li><a href="products.html">Warehousing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>Wilhelminakade 12, Rotterdam</li>
+          <li>+31 10 555 0142</li>
+          <li>cargo@meridianexport.example</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Meridian Export &amp; Freight Forwarding B.V.</span>
+      <span>IATA · FIATA · AEO CERTIFIED</span>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts/main.js"></script>
+</body>
+</html>
