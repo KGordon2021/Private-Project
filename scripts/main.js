@@ -1,4 +1,9 @@
-/* MERIDIAN — shared interactivity */
+/* ABM Investments Ltd. — shared interactivity */
+console.log('=== MAIN.JS EMAILJS CHECK ===');
+console.log('typeof emailjs:', typeof emailjs);
+console.log('window.emailjs:', window.emailjs);
+console.log('document.readyState:', document.readyState);
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- Nav: scroll shadow + mobile toggle ---------- */
@@ -169,18 +174,119 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ---------- Quote / contact forms (front-end only) ---------- */
-  ['#quote-form', '#contact-form'].forEach(sel => {
-    const form = document.querySelector(sel);
-    if (!form) return;
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const success = form.querySelector('.form-success') || form.parentElement.querySelector('.form-success');
-      if (success) {
-        success.classList.add('show');
-        form.reset();
-        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  // ['#quote-form', '#contact-form'].forEach(sel => {
+  //   const form = document.querySelector(sel);
+  //   if (!form) return;
+  //   form.addEventListener('submit', (e) => {
+  //     e.preventDefault();
+  //     const success = form.querySelector('.form-success') || form.parentElement.querySelector('.form-success');
+  //     if (success) {
+  //       success.classList.add('show');
+  //       form.reset();
+  //       success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  //     }
+  //   });
+  // });
+  
+  /* -------------- Replace broken images with placeholder ---------------*/
+  const catalogImages = document.querySelectorAll('.image-wrapper img');
+
+  catalogImages.forEach(img => {
+    // Listen for broken images that fail while the page is open
+    img.addEventListener('error', function() {
+      // Force the broken image icon to completely vanish
+      this.style.setProperty('display', 'none', 'important');
+      
+      // Locate the text box right next to it and activate it
+      const fallbackPlaceholder = this.nextElementSibling;
+      if (fallbackPlaceholder && fallbackPlaceholder.classList.contains('image-placeholder')) {
+        fallbackPlaceholder.style.setProperty('display', 'flex', 'important');
       }
     });
+
+
+    // This checks if the image was ALREADY broken before the script finished loading.
+    if (img.complete && img.naturalWidth === 0) {
+      img.dispatchEvent(new Event('error'));
+    }
   });
+
+  /* ---------- EmailJS Forms ---------- */
+
+  const handleEmailForm = async (form) => {
+    const templateId = form.dataset.template;
+
+    if (!templateId) {
+      console.error('No EmailJS template specified for this form.');
+      return;
+    }
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    if (!submitBtn) {
+      console.error('Submit button not found.');
+      return;
+    }
+
+    const originalBtnText = submitBtn.textContent;
+
+    try {
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+
+      console.log(`Sending form using template: ${templateId}`);
+
+      const response = await window.emailjs.sendForm(
+        'service_azi4a4d',
+        templateId,
+        form
+      );
+
+      console.log('Email sent successfully:', response);
+
+      const successMessage =
+        form.querySelector('.form-success') ||
+        form.parentElement?.querySelector('.form-success');
+
+      if (successMessage) {
+        successMessage.style.setProperty(
+          'display',
+          'flex',
+          'important'
+        );
+
+        successMessage.classList.add('show');
+      }
+
+      form.reset();
+
+    } catch (error) {
+      console.error('EmailJS error:', error);
+
+      alert(
+        'Your message could not be sent. Please try again.'
+      );
+
+    } finally {
+      submitBtn.textContent = originalBtnText;
+      submitBtn.disabled = false;
+    }
+  };
+
+
+  /* ---------- Attach EmailJS handler to forms ---------- */
+
+  document.querySelectorAll(
+    '.emailjs-form'
+  ).forEach(form => {
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      handleEmailForm(this);
+    });
+
+  });
+
 
 });

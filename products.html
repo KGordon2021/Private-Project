@@ -3,11 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Products &amp; Services — Meridian Export &amp; Freight Forwarding</title>
+<title>Products &amp; Services — ABM Investments Ltd.</title>
 <meta name="description" content="Ocean, air, rail and road freight, customs brokerage and bonded warehousing. Compare transit modes and request a quote.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles/style.css">
+
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@5/dist/email.min.js">
+  </script>
+
+  <script type="text/javascript">
+    (function () {
+      emailjs.init({
+        publicKey: 'lO6vTEZJ3VJqSqF0t'
+      });
+
+    })();
+  </script>
 </head>
 <body>
 
@@ -16,13 +30,13 @@
   <div class="wrap nav-inner">
     <a href="index.html" class="brand">
       <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 26L20 6L36 26" stroke="#D9A24A" stroke-width="2"/>
-        <path d="M8 26H32L29 34H11L8 26Z" stroke="#EDEAE2" stroke-width="2" stroke-linejoin="round"/>
-        <line x1="20" y1="6" x2="20" y2="26" stroke="#EDEAE2" stroke-width="2"/>
+        <path d="M20 4L23 15L37 19L23 23L20 36L17 23L3 19L17 15L20 4Z" stroke="#D9A24A" stroke-width="2" stroke-linejoin="round" fill="none"/>
+        <line x1="20" y1="4" x2="20" y2="36" stroke="#EDEAE2" stroke-width="2" stroke-linecap="round"/>
+        <path d="M15 31H25" stroke="#EDEAE2" stroke-width="2" stroke-linecap="round"/>
       </svg>
+
       <span>
-        <span class="brand-name">MERIDIAN</span>
-        <span class="brand-tag">EXPORT &amp; FREIGHT</span>
+        <span class="brand-name">ABM Investments Ltd.</span>
       </span>
     </a>
     <ul class="nav-links">
@@ -42,15 +56,16 @@
 <header class="sub-hero">
   <div class="wrap sub-hero-grid">
     <div>
-      <span class="eyebrow">Services</span>
-      <h1 class="h-xl">Every mode.<br>One manifest.</h1>
+      <span class="eyebrow">Export Services</span>
+      <h1 class="h-xl">Premium produce.<br>Sourced and exported fresh.</h1>
     </div>
-    <p class="lede">Whichever way your cargo needs to travel — by sea, air, rail or road — Meridian books it, documents it and gets it through customs on the other side.</p>
+    <p class="lede">We specialize in exporting high-quality agricultural provisions directly from certified farms to global distributors. By managing the complete sourcing, grading, and preparation process, we utilize air transport to guarantee your cargo arrives with peak freshness and maximum shelf life.</p>
   </div>
 </header>
 
+
 <!-- ============ SERVICE GRID ============ -->
-<section class="bg-light on-light">
+<!-- <section class="bg-light on-light">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Freight &amp; logistics</span>
@@ -108,10 +123,81 @@
       </div>
     </div>
   </div>
+</section> -->
+
+<section class="bg-light on-light">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">End-to-End Air Logistics</span>
+      <h2 class="h-lg">From farm gates to flight dispatch.</h2>
+    </div>
+
+    <div class="card-grid reveal-stagger">
+      <!-- Step 1: Sourcing & Procurement -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 34V18l14-10 14 10v16H6zM14 34V24h12v10M6 18h28M20 8v26"/></svg>
+        </div>
+        <h3>1. Farm-Gate Sourcing</h3>
+        <p>We procure fresh produce directly from our network of certified farmers just 1 to 2 days prior to your scheduled flight departure.</p>
+        <span class="service-tag">Direct Procurement · Ultra-Fresh</span>
+      </div>
+
+      <!-- Step 2: Quality Inspection (UPDATED WITH PRODUCTS) -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="20" r="14"/><path d="M14 20l4 4 8-8"/></svg>
+        </div>
+        <h3>2. Specialized Produce Selection</h3>
+        <p>We strictly grade and sort our produces—such as yams, sweet potatoes, breadfruit, and mangoes—to ensure perfect maturity and zero defects.</p>
+        <span class="service-tag">Yams · Sweet Potatoes · Breadfruit · Mangoes</span>
+      </div>
+
+      <!-- Step 3: Cold Chain Processing -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h32v22H4V14zM20 6v8M12 14v22M28 14v22M8 20h6M26 26h6"/></svg>
+        </div>
+        <h3>3. Facility Processing</h3>
+        <p>Arriving produce is swiftly moved to our hygienic facility for systematic washing, air-drying, and precision sorting into export batches.</p>
+        <span class="service-tag">Washing &amp; Sorting · Clean Pack</span>
+      </div>
+
+      <!-- Step 4: Export Packaging -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4L6 11l14 7 14-7-14-7zM6 11v18l14 7V18L6 11zM34 11v18l-14 7V18l14-7z"/></svg>
+        </div>
+        <h3>4. Export-Grade Packing</h3>
+        <p>Produce is packed inside customized, well-ventilated, cold-chain ready packaging designed to withstand altitude pressures and protect shelf life.</p>
+        <span class="service-tag">Ventilated Cartons · Air-Ready</span>
+      </div>
+
+      <!-- Step 5: Agriculture Clearance -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="4" width="24" height="32" rx="2"/><path d="M14 12h12M14 18h12M14 24h6M22 28l3 3 5-5"/></svg>
+        </div>
+        <h3>5. Customs &amp; Phyto Checks</h3>
+        <p>We process all priority export paperwork, including essential agricultural inspections and phytosanitary certificates, before terminal arrival.</p>
+        <span class="service-tag">Phytosanitary · Export Customs</span>
+      </div>
+
+      <!-- Step 6: Air Freight Logistics -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M34 22l-10-6v-6c0-1.7-1.3-3-3-3s-3 1.3-3 3v6l-10 6v4l10-3v6l-3 3v3l6-2 6 2v-3l-3-3v-6l10 3v-4z"/></svg>
+        </div>
+        <h3>6. Air Freight Dispatch</h3>
+        <p>Cargo is delivered to the airport terminal for immediate loading, moving seamlessly onto flights handled by you or booked by us.</p>
+        <span class="service-tag">Air Waybill (AWB) · Cargo Loading</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ============ COMPARISON TABLE ============ -->
-<section class="bg-navy on-navy">
+<!-- <section class="bg-navy on-navy">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Choosing a mode</span>
@@ -158,10 +244,175 @@
       </table>
     </div>
   </div>
+</section> -->
+
+<!-- <section class="bg-navy on-navy">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Our Core Produce</span>
+      <h2 class="h-lg">Optimized for rapid air export.</h2>
+    </div>
+    <div class="reveal" style="overflow-x:auto; background:var(--navy-2); border:1px solid var(--steel); border-radius:8px; padding:8px 24px;">
+      <table class="compare-table" style="color:var(--fog);">
+        <thead>
+          <tr>
+            <th>Produce Type</th>
+            <th>Sourcing Timeline</th>
+            <th>Temperature Control</th>
+            <th>Ideal Air Transit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-color:var(--steel);">
+            <td>
+              <strong style="color:#fff;">Yams</strong>
+            </td>
+            <td>1–2 days pre-flight</td>
+            <td>Ambient / Well-ventilated</td>
+            <td>24–78 Hours</td>
+          </tr>
+          <tr style="border-color:var(--steel);">
+            <td>
+              <strong style="color:#fff;">Sweet Potatoes</strong>
+            </td>
+            <td>1–2 days pre-flight</td>
+            <td>Cool storage (13°C–15°C)</td>
+            <td>24–78 Hours</td>
+          </tr>
+          <tr style="border-color:var(--steel);">
+            <td>
+              <strong style="color:#fff;">Breadfruit</strong>
+            </td>
+            <td>24 hours pre-flight</td>
+            <td>Chilled chain (8°C–12°C)</td>
+            <td>24–48 Hours (High Urgency)</td>
+          </tr>
+          <tr>
+            <td>
+              <strong style="color:#fff;">Mangoes</strong>
+            </td>
+            <td>1–2 days pre-flight</td>
+            <td>Climate controlled (10°C–13°C)</td>
+            <td>24–48 Hours (Peak Ripeness)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section> -->
+
+<!-- ============ VISUAL GALLERY & PRODUCT CATALOG ============ -->
+<section id="export-catalog-gallery" class="section bg-light on-light" style="padding-top: 20px; padding-bottom: 60px;">
+  <div class="wrap">
+    
+    <div class="section-head reveal" style="margin-bottom: 40px;">
+      <span class="eyebrow">Export Catalog</span>
+      <h2 class="h-lg">Our Sourcing &amp; Supply Capabilities</h2>
+    </div>
+    
+    <!-- Category 1: Ground Provisions & Tubers -->
+    <div class="catalog-category">
+      <h3 class="h-md" style="border-bottom: 2px solid var(--steel, #e2e8f0); padding-bottom: 10px; margin-bottom: 24px; font-weight: 400;">Ground Provisions &amp; Tubers</h3>
+      <div class="catalog-grid">
+        
+        <div class="gallery-card">
+          <div class="image-wrapper">
+            <div class="image-placeholder">[Photo: Fresh Yellow Yams]</div>
+          </div>
+          <h4 class="card-title">Yellow &amp; White Yams</h4>
+          <p class="card-description">Brushed, graded, and packed securely to manage moisture control during flight.</p>
+        </div>
+
+        <div class="gallery-card">
+          <div class="image-wrapper">
+            <div class="image-placeholder">[Photo: Sweet Potatoes]</div>
+          </div>
+          <h4 class="card-title">Sweet Potatoes</h4>
+          <p class="card-description">Cured at source and systematically sorted by size for uniform wholesale delivery.</p>
+        </div>
+
+        <div class="gallery-card">
+          <div class="image-wrapper">
+            <div class="image-placeholder">[Photo: Dasheen / Coco]</div>
+          </div>
+          <h4 class="card-title">Dasheen &amp; Coco</h4>
+          <p class="card-description">Firm, pristine roots harvested precisely to order for extended market shelf-life.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Category 2: Tree Crops & Tropical Fruits -->
+    <div class="catalog-category">
+      <h3 class="h-md" style="border-bottom: 2px solid var(--steel, #e2e8f0); padding-bottom: 10px; margin-bottom: 24px; font-weight: 400;">Tree Crops &amp; Tropical Fruits</h3>
+      <div class="catalog-grid">
+        <div class="gallery-card">
+          <div class="image-wrapper">
+            <div class="image-placeholder">[Photo: Fresh Breadfruit]</div>
+          </div>
+          <h4 class="card-title">Raw &amp; Roasted Breadfruit</h4>
+          <p class="card-description">High-urgency air freight item handled under rapid temperature-regulated cold lines.</p>
+        </div>
+
+        <div class="gallery-card">
+          <div class="image-wrapper">
+            <img src="images/east_indian_mangoes.jpg" alt="East Indian Mangoes">
+            <div class="image-placeholder">[Photo: Jamaican Mangoes]</div>
+          </div>
+          <h4 class="card-title">Julie &amp; East Indian Mangoes</h4>
+          <p class="card-description">Sourced at optimal pre-ripeness window and cushioned carefully to prevent bruising.</p>
+        </div>
+
+        <div class="gallery-card">
+          <div class="image-wrapper">
+            <div class="image-placeholder">[Photo: Papayas / Avocados]</div>
+          </div>
+          <h4 class="card-title">Papayas &amp; Avocados</h4>
+          <p class="card-description">Carefully nested inside single-layer ventilated packaging optimized for altitude pressure.</p>
+        </div>
+
+      </div>
+    </div>
+
+        <!-- Category 3: Peppers & Herbs + Custom Sourcing Box -->
+    <div class="catalog-category">
+      <h3 class="h-md" style="border-bottom: 2px solid var(--steel, #e2e8f0); padding-bottom: 10px; margin-bottom: 24px; font-weight: 400;">Hot Peppers &amp; Aromatics</h3>
+      <div class="catalog-grid">
+        
+        <div class="gallery-card">
+          <div class="image-wrapper">
+            <div class="image-placeholder">[Photo: Scotch Bonnet Peppers]</div>
+          </div>
+          <h4 class="card-title">Scotch Bonnet Peppers</h4>
+          <p class="card-description">Sorted meticulously by clean color consistency and uniform heat index parameters.</p>
+        </div>
+
+        <div class="gallery-card">
+          <div class="image-wrapper">
+            <div class="image-placeholder">[Photo: Fresh Scallion &amp; Thyme]</div>
+          </div>
+          <h4 class="card-title">Scallion, Thyme &amp; Ginger</h4>
+          <p class="card-description">Hydro-cooled post-harvest to preserve native aromatic oils and maximum freshness.</p>
+        </div>
+
+        <!-- Custom Sourcing Callout Card -->
+        <div class="custom-sourcing-card">
+          <h4 class="card-title" style="color: #fff; margin-top: 0;">Need something else?</h4>
+          <p class="card-description" style="color: rgba(255,255,255,0.85); margin-bottom: 16px;">Our local agricultural network extends island-wide. If it grows in Jamaica, we can source, pack, and air-ship it for you.</p>
+          <a href="#contact" style="color: #38bdf8; font-weight: bold; text-decoration: none; font-size: 0.9rem;">Submit Custom Sourcing Request →</a>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
 </section>
 
+
+
 <!-- ============ PROCESS ACCORDION ============ -->
-<section class="bg-light on-light">
+<!-- <section class="bg-light on-light">
   <div class="wrap" style="max-width:840px;">
     <div class="section-head reveal">
       <span class="eyebrow">The export process</span>
@@ -215,10 +466,121 @@
       </div>
     </div>
   </div>
+</section> -->
+
+<!-- <section class="bg-light on-light">
+  <div class="wrap" style="max-width:840px;">
+    <div class="section-head reveal">
+      <span class="eyebrow">The export process</span>
+      <h2 class="h-lg">What happens after you book.</h2>
+    </div>
+    <div class="accordion reveal">
+      <div class="accordion-item open">
+        <button class="accordion-btn">
+          <span class="aq-left"><span class="aq-num">01</span><h3>Order &amp; Space Confirmation</h3></span>
+          <span class="accordion-plus"></span>
+        </button>
+        <div class="accordion-body" style="max-height:200px;">
+          <div class="accordion-body-in">Whether you book flights through us or use your own carrier accounts, we lock in your produce volumes and flight schedule immediately to synchronize the farm harvest timeline.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span class="aq-left"><span class="aq-num">02</span><h3>Phytosanitary &amp; Export Documentation</h3></span>
+          <span class="accordion-plus"></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-in">Our compliance team handles the mandatory agricultural inspections and secures your Phytosanitary Certificates alongside standard customs paperwork well ahead of flight dispatch.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span class="aq-left"><span class="aq-num">03</span><h3>Targeted Sourcing &amp; Processing</h3></span>
+          <span class="accordion-plus"></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-in">Just 1 to 2 days before departure, we procure your produce from the farms. It is instantly washed, graded, and packed into ventilated, air-freight-ready boxes inside our Packaging House facility.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span class="aq-left"><span class="aq-num">04</span><h3>Airport Delivery &amp; AWB Dispatch</h3></span>
+          <span class="accordion-plus"></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-in">We deliver the temperature-controlled produce to the airport terminal for immediate airline handover. Once loaded, you are issued your Air Waybill (AWB) for live flight tracking.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span class="aq-left"><span class="aq-num">05</span><h3>Destination Inspections &amp; Handover</h3></span>
+          <span class="accordion-plus"></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-in">Priority agricultural import clearance is coordinated at the destination airport terminal, allowing fresh produce to bypass delays and move straight to cold storage or distributor pickup.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<section class="bg-light on-light">
+  <div class="wrap" style="max-width:840px;">
+    <div class="section-head reveal">
+      <span class="eyebrow">The export process</span>
+      <h2 class="h-lg">What happens after confirming your produce.</h2>
+    </div>
+    <div class="accordion reveal">
+      <div class="accordion-item open">
+        <button class="accordion-btn">
+          <span class="aq-left"><span class="aq-num">01</span><h3>Order Verification &amp; Logistical Planning</h3></span>
+          <span class="accordion-plus"></span>
+        </button>
+        <div class="accordion-body" style="max-height:200px;">
+          <div class="accordion-body-in">Once your specific produce varieties and volumes are locked in, our export desk immediately coordinates the logistical schedule—whether aligning with your own airline booking or utilizing our preferred carrier space to secure seamless departure tracking.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span class="aq-left"><span class="aq-num">02</span><h3>Phytosanitary &amp; Export Compliance</h3></span>
+          <span class="accordion-plus"></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-in">We manage all critical agricultural compliance protocols. Our team schedules the mandatory inspections and secures your Phytosanitary Certificates and export documentation to ensure a seamless transition from the packing house to the tarmac.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span class="aq-left"><span class="aq-num">03</span><h3>Fresh Farm Sourcing &amp; Processing</h3></span>
+          <span class="accordion-plus"></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-in">To guarantee exceptional quality, we procure the agreed produce from our certified growers just 1 to 2 days before the flight. Items are immediately brought to our facility to be washed, graded, and packed in ventilated, export-ready cartons.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span class="aq-left"><span class="aq-num">04</span><h3>Airport Dispatch &amp; Handover</h3></span>
+          <span class="accordion-plus"></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-in">The prepared cargo is transferred securely to the airport freight terminal. Upon final handover to the airline, your Air Waybill (AWB) is issued, tracking your fresh produce as it transitions through the air.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-btn">
+          <span class="aq-left"><span class="aq-num">05</span><h3>Destination Clearance &amp; Arrival</h3></span>
+          <span class="accordion-plus"></span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-in">Agricultural and customs clearances are finalized swiftly at the destination airport terminal, bypassing potential cargo delays so your pristine provisions can go straight to distributor cold storage or wholesale pickup.</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ============ QUOTE FORM ============ -->
-<section class="bg-navy on-navy" id="quote">
+<!-- <section class="bg-navy on-navy" id="quote">
   <div class="wrap" style="max-width:800px;">
     <div class="section-head reveal" style="margin-bottom:36px;">
       <span class="eyebrow">Request a quote</span>
@@ -233,7 +595,7 @@
           </div>
           <div class="field">
             <label for="qf-company">Company</label>
-            <input id="qf-company" name="company" type="text" placeholder="Acme Exports Ltd." required>
+            <input id="qf-company" name="company" type="text" placeholder="Export to You Ltd." required>
           </div>
           <div class="field">
             <label for="qf-email">Email</label>
@@ -266,11 +628,76 @@
         </div>
         <div style="margin-top:26px;">
           <button type="submit" class="btn btn-primary">Submit Request</button>
-          <p class="form-note">A member of the Meridian team will respond with a rate within one business day.</p>
+          <p class="form-note">A member of our team will respond with a rate within one business day.</p>
         </div>
         <div class="form-success">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#5FBE7A" stroke-width="1.4"/><path d="M5.5 9L8 11.5L13 6" stroke="#5FBE7A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <span>Request received — we'll be in touch within one business day.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section> -->
+
+<section class="bg-navy on-navy" id="quote">
+  <div class="wrap" style="max-width:800px;">
+    <div class="section-head reveal" style="margin-bottom:36px;">
+      <span class="eyebrow">Request a quote</span>
+      <h2 class="h-lg">Tell us what's shipping.</h2>
+    </div>
+    <div class="quote-panel reveal">
+      <form id="quote-form" class="emailjs-form" data-template="template_dh95nlo" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="qf-name">Full name</label>
+            <input id="qf-name" name="name" type="text" placeholder="Jordan Miles" required>
+          </div>
+          <div class="field">
+            <label for="qf-company">Company</label>
+            <input id="qf-company" name="company" type="text" placeholder="Export to You Ltd." required>
+          </div>
+          <div class="field">
+            <label for="qf-email">Email</label>
+            <input id="qf-email" name="email" type="email" placeholder="jordan@company.com" required>
+          </div>
+          
+          <!-- Tailored Air Logistics Booking Field -->
+          <div class="field">
+            <label for="qf-booking">Freight Booking Preference</label>
+            <select id="qf-booking" name="booking_preference" required>
+              <option value="">Select option</option>
+              <option value="supplier">Arrange booking for us</option>
+              <option value="customer">Book directly with the airline (FOB/Collect)</option>
+            </select>
+          </div>
+          
+          <!-- Explicitly targeting Airport terminals instead of ocean ports -->
+          <div class="field">
+            <label for="qf-origin">Origin Airport</label>
+            <input id="qf-origin" name="origin" type="text" placeholder="e.g., KIN - Kingston, MBJ - Montego Bay" required>
+          </div>
+          <div class="field">
+            <label for="qf-dest">Destination Airport</label>
+            <input id="qf-dest" name="destination" type="text" placeholder="e.g., JFK - New York, LHR - London" required>
+          </div>
+          
+          <!-- Contextual placeholder updates focusing on produce volume specs -->
+          <div class="field full">
+            <label for="qf-cargo">Produce Sourcing &amp; Cargo Details</label>
+            <textarea id="qf-cargo" name="cargo" placeholder="Specify items (e.g., Yams, Mangoes, Breadfruit), estimated volumes, boxes, total target weight, or temperature settings if known" required></textarea>
+          </div>
+
+          
+        </div>
+        
+        <!-- Updated to reflect rapid 2-to-4 hour air cargo response metrics -->
+        <div style="margin-top:26px;">
+          <button type="submit" class="btn btn-primary">Submit Request</button>
+          <p class="form-note">A member of our team will respond with details within 2 to 4 business hours.</p>
+        </div>
+        <div class="form-success">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#5FBE7A" stroke-width="1.4"/><path d="M5.5 9L8 11.5L13 6" stroke="#5FBE7A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Request received — our specialists will be in touch within 2 to 4 business hours.</span>
         </div>
       </form>
     </div>
@@ -282,8 +709,8 @@
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <span class="brand-name" style="color:#EDEAE2;">MERIDIAN</span>
-        <p>Export and freight forwarding across ocean, air, rail and road — headquartered at the Port of Rotterdam with agents in 48 countries.</p>
+        <span class="brand-name" style="color:#EDEAE2;">ABM Investments Ltd.</span>
+        <p>Exporting using air — headquartered in Jamaica.</p>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
@@ -297,24 +724,24 @@
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="products.html">Ocean Freight</a></li>
+          <!-- <li><a href="products.html">Ocean Freight</a></li> -->
           <li><a href="products.html">Air Freight</a></li>
-          <li><a href="products.html">Customs Brokerage</a></li>
-          <li><a href="products.html">Warehousing</a></li>
+          <!-- <li><a href="products.html">Customs Brokerage</a></li> -->
+          <!-- <li><a href="products.html">Warehousing</a></li> -->
         </ul>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <li>Wilhelminakade 12, Rotterdam</li>
-          <li>+31 10 555 0142</li>
-          <li>cargo@meridianexport.example</li>
+          <li>15 Lancaster Road, Kingston 10, Jamaica</li>
+          <li>+1 (876) 908-0140 or +1 (876) 372-5299 </li>
+          <li>abmfreshproduce@gmail.com</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Meridian Export &amp; Freight Forwarding B.V.</span>
-      <span>IATA · FIATA · AEO CERTIFIED</span>
+      <span>© 2026 ABM Investments Ltd.</span>
+      <!-- <span>IATA · FIATA · AEO CERTIFIED</span> -->
     </div>
   </div>
 </footer>

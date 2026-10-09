@@ -1,12 +1,12 @@
 /* ==========================================================================
-   MERIDIAN — Export & Shipment site
+   ABM Investments — Export & Shipment site
    Design tokens
    ========================================================================== */
 :root{
   /* colour */
-  --navy:      #0B1E2E;   /* primary dark bg */
-  --navy-2:    #0F2A3F;   /* secondary dark panel */
-  --steel:     #1E3E56;   /* dark borders / card fills */
+  --navy:      #0b2e0b;   /* primary dark bg */
+  --navy-2:    #0f3f1b;   /* secondary dark panel */
+  --steel:     #4c561e;   /* dark borders / card fills */
   --steel-2:   #2A5170;   /* lighter steel for hovers */
   --fog:       #EDEAE2;   /* light bg */
   --paper:     #F7F4EC;   /* lighter card on light bg */
@@ -93,11 +93,11 @@ p{ margin:0; }
 .site-nav{
   position:fixed; top:0; left:0; right:0; z-index:100;
   padding:20px 0;
-  background:linear-gradient(to bottom, rgba(11,30,46,.92), rgba(11,30,46,0));
+  background:linear-gradient(to bottom, rgba(11, 46, 23, 0.92), rgba(11, 46, 21, 0));
   transition:background .35s var(--ease), padding .35s var(--ease), box-shadow .35s;
 }
 .site-nav.scrolled{
-  background:rgba(11,30,46,.96);
+  background:rgba(11, 46, 20, 0.96);
   backdrop-filter:blur(8px);
   padding:13px 0;
   box-shadow:0 8px 24px rgba(0,0,0,.25);
@@ -339,6 +339,115 @@ footer{ background:var(--navy); border-top:1px solid var(--steel); color:var(--m
 .value-card h3{ font-family:var(--f-body); font-weight:700; font-size:18px; margin-bottom:10px; }
 .value-card p{ font-size:14.5px; color:#5B6A73; max-width:60ch; }
 .on-navy .value-card p{ color:var(--mist); }
+
+/* ============ EXPORT CATALOG SYSTEM LOGIC ============ */
+
+/* 1. Sets up the main grid layout rows neatly */
+#export-catalog-gallery .catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 48px;
+}
+
+/* 2. Controls individual card surfaces & interactions */
+#export-catalog-gallery .gallery-card {
+  background: #ffffff;
+  border: 1px solid var(--steel, #e2e8f0);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#export-catalog-gallery .gallery-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 20px rgba(15, 116, 28, 0.06);
+}
+
+/* 3. Locks image box proportions cleanly */
+#export-catalog-gallery .image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  background-color: #dbeafe !important; /* Soft blue placeholder background */
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 4. Controls live images and hover zoom animation */
+#export-catalog-gallery .image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+#export-catalog-gallery .gallery-card:hover .image-wrapper img {
+  transform: scale(1.05);
+}
+
+/* 5. Keeps backup text hidden unless script.js flags an error */
+#export-catalog-gallery .image-wrapper .image-placeholder {
+  display: none !important; /* Keep this active so it stays invisible when photos load */
+  width: 100%;
+  height: 100%;
+  position: absolute; /* Centers it inside the container */
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: #1e40af;
+  font-style: italic;
+  padding: 12px;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: #dbeafe; /* Ensures the blue background appears only behind text */
+  z-index: 2; /* Sits cleanly above a broken image icon */
+}
+
+
+/* 6. Typography adjustments inside the cards */
+#export-catalog-gallery .gallery-card .card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 16px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  color: #1e293b;
+  line-height: 1.2;
+}
+
+#export-catalog-gallery .gallery-card .card-description {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #475569;
+  margin: 0;
+  padding: 0;
+}
+
+/* 7. Special dimensions for custom sourcing layout box */
+#export-catalog-gallery .custom-sourcing-card {
+  min-height: 290px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #0f172a;
+  color: #fff;
+  border-radius: 8px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
 
 /* comparison table (products) */
 .compare-table{ width:100%; border-collapse:collapse; font-size:14.5px; }
