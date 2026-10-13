@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = slider.querySelector('.slider-arrow.prev');
     const nextBtn = slider.querySelector('.slider-arrow.next');
     const dotsWrap = slider.querySelector('.slider-dots');
+    
     if (!track || slides.length === 0) return;
 
     let index = 0;
@@ -173,20 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ---------- Quote / contact forms (front-end only) ---------- */
-  // ['#quote-form', '#contact-form'].forEach(sel => {
-  //   const form = document.querySelector(sel);
-  //   if (!form) return;
-  //   form.addEventListener('submit', (e) => {
-  //     e.preventDefault();
-  //     const success = form.querySelector('.form-success') || form.parentElement.querySelector('.form-success');
-  //     if (success) {
-  //       success.classList.add('show');
-  //       form.reset();
-  //       success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  //     }
-  //   });
-  // });
   
   /* -------------- Replace broken images with placeholder ---------------*/
   const catalogImages = document.querySelectorAll('.image-wrapper img');
@@ -210,6 +197,8 @@ document.addEventListener('DOMContentLoaded', () => {
       img.dispatchEvent(new Event('error'));
     }
   });
+
+  
 
   /* ---------- EmailJS Forms ---------- */
 
