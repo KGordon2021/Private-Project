@@ -62,6 +62,11 @@ const exportInventory = [
           title: "Escallions",
           desc: "Hydro-cooled post-harvest to preserve native aromatic oils and maximum freshness.",
           images: ["images/escallion.jpg", "images/escallion_1.jpg"]
+        },
+        {
+          title: "Escallions",
+          desc: "Hydro-cooled post-harvest to preserve native aromatic oils and maximum freshness.",
+          images: ["images/escallion.jpg", "images/escallion_1.jpg"]
         }
       ]
     }
