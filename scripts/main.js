@@ -96,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = slider.querySelector('.slider-arrow.prev');
     const nextBtn = slider.querySelector('.slider-arrow.next');
     const dotsWrap = slider.querySelector('.slider-dots');
-    
     if (!track || slides.length === 0) return;
 
     let index = 0;
@@ -173,7 +172,6 @@ document.addEventListener('DOMContentLoaded', () => {
       body.style.maxHeight = !isOpen ? body.scrollHeight + 'px' : 0;
     });
   });
-
   
   /* -------------- Replace broken images with placeholder ---------------*/
   const catalogImages = document.querySelectorAll('.image-wrapper img');
@@ -197,8 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
       img.dispatchEvent(new Event('error'));
     }
   });
-
-  
 
   /* ---------- EmailJS Forms ---------- */
 
