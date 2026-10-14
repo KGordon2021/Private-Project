@@ -44,11 +44,6 @@ const exportInventory = [
           images: ["images/julie_mangoes.jpg"] 
         },
         {
-          title: "Soursop",
-          desc: "Carefully nested inside single-layer ventilated packaging optimized for altitude pressure.",
-          images: ["images/soursop.jpg"]
-        },
-        {
           title: "Starapple",
           desc: "Carefully nested inside single-layer ventilated packaging optimized for altitude pressure.",
           images: ["images/starapple.jpg", "images/starapple_1.jpg"]

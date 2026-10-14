@@ -449,6 +449,7 @@ footer{ background:var(--navy); border-top:1px solid var(--steel); color:var(--m
 }
 
 
+
 /* comparison table (products) */
 .compare-table{ width:100%; border-collapse:collapse; font-size:14.5px; }
 .compare-table th, .compare-table td{ text-align:left; padding:18px 16px; border-bottom:1px solid #DCD5C4; }
