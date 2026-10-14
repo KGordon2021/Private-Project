@@ -26,7 +26,7 @@ const exportInventory = [
       ]
     },
     {
-      category: "Tree Crops & Tropical Fruits",
+      category: "Tree Crops, Tropical Fruits & Vegetables",
       items: [
         {
           title: "Breadfruit",
@@ -44,9 +44,24 @@ const exportInventory = [
           images: ["images/julie_mangoes.jpg"] 
         },
         {
-          title: "Papayas & Avocados",
+          title: "Soursop",
           desc: "Carefully nested inside single-layer ventilated packaging optimized for altitude pressure.",
-          images: ["images/papayas_avocados.jpg"]
+          images: ["images/soursop.jpg"]
+        },
+        {
+          title: "Starapple",
+          desc: "Carefully nested inside single-layer ventilated packaging optimized for altitude pressure.",
+          images: ["images/starapple.jpg", "images/starapple_1.jpg"]
+        },
+        {
+          title: "Naseberry",
+          desc: "Carefully nested inside single-layer ventilated packaging optimized for altitude pressure.",
+          images: ["images/naseberry.jpg"]
+        },
+        {
+          title: "Callaloo",
+          desc: "Carefully nested inside single-layer ventilated packaging optimized for altitude pressure.",
+          images: ["images/callaloo.jpg", "images/callaloo_1.jpg"]
         }
       ]
     },
