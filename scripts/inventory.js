@@ -172,8 +172,8 @@ function renderCatalog() {
 
       gridContainer.appendChild(card);
     });
-
-    if (catBlock.category === 'Hot Peppers & Aromatics' &&
+    //add custom sourcing card if category is Herbs, Spices & Aromatics
+    if (catBlock.category === 'Herbs, Spices & Aromatics' &&
        sourcingTemplate
       ) {
       const customCard = sourcingTemplate.content
