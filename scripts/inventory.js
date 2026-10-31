@@ -81,36 +81,26 @@ const exportInventory = [
       ]
     }
   ];
-  
-  /* ---------- Dynamic catalog renderer ---------- */
-
 function renderCatalog() {
-  const catalogRoot = document.getElementById(
-    'dynamic-catalog-container'
-  );
-
-  const cardTemplate = document.getElementById(
-    'product-card-template'
-  );
-
-  const sourcingTemplate = document.getElementById(
-    'custom-sourcing-template'
-  );
+  const cardTemplate = document.getElementById('product-card-template');
+  const catalogRoot = document.getElementById('dynamic-catalog-container');
+  const sourcingTemplate = document.getElementById('custom-sourcing-template');
 
   if (!catalogRoot || !cardTemplate) return;
 
   // Clear existing cards before rendering again
   catalogRoot.replaceChildren();
 
+  if (typeof exportInventory === 'undefined' || !Array.isArray(exportInventory)) return;
+
   exportInventory.forEach(catBlock => {
     // Create category
     const catSection = document.createElement('div');
     catSection.className = 'catalog-category';
-
+    
     const catHeader = document.createElement('h3');
     catHeader.className = 'h-md';
-    catHeader.textContent = catBlock.category;
-
+    catHeader.textContent = catBlock.category || "Uncategorized";
     catHeader.style.cssText = `
       border-bottom: 2px solid var(--steel, #e2e8f0);
       padding-bottom: 10px;
@@ -121,62 +111,73 @@ function renderCatalog() {
     const gridContainer = document.createElement('div');
     gridContainer.className = 'catalog-grid';
 
-    // Create each product from the inventory
-    catBlock.items.forEach(product => {
-      const card = cardTemplate.content
-        .firstElementChild.cloneNode(true);
+    const items = Array.isArray(catBlock.items) ? catBlock.items : [];
 
+    items.forEach(product => {
+      const card = cardTemplate.content.firstElementChild.cloneNode(true);
       const slider = card.querySelector('.slider');
       const track = card.querySelector('.slider-track');
       const nav = card.querySelector('.slider-nav');
+      const dotsContainer = card.querySelector('.slider-dots');
+      
+      // Remove arrows completely right away
+      const prevArrow = card.querySelector('.slider-arrow.prev');
+      const nextArrow = card.querySelector('.slider-arrow.next');
+      if (prevArrow) prevArrow.remove();
+      if (nextArrow) nextArrow.remove();
+
       const title = card.querySelector('.card-title');
       const description = card.querySelector('.card-description');
       const placeholder = card.querySelector('.image-placeholder');
 
-      title.textContent = product.title;
-      description.textContent = product.desc;
-      placeholder.textContent = `[Photo: ${product.title}]`;
+      if (title) title.textContent = product.title || "";
+      if (description) description.textContent = product.desc || "";
+      if (placeholder) placeholder.textContent = `[Photo: ${product.title || 'Product'}]`;
 
-      // Build slides from the product's image array
-      const images = Array.isArray(product.images)
-        ? product.images
-        : [];
-
-      images.forEach(imgUrl => {
+      const images = Array.isArray(product.images) ? product.images : [];
+      const imageCount = images.length;
+      
+      images.forEach((imgUrl, index) => {
+        if (!track) return;
         const slide = document.createElement('div');
         slide.className = 'slide';
-
         const img = document.createElement('img');
         img.src = imgUrl;
-        img.alt = product.title;
+        img.alt = product.title || "Product Image";
         img.loading = 'lazy';
-
         slide.appendChild(img);
         track.appendChild(slide);
+
+        // Dynamically create dots
+        if (imageCount > 1 && dotsContainer) {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = `slider-dot ${index === 0 ? 'active' : ''}`;
+          dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+          dotsContainer.appendChild(dot);
+        }
       });
 
-      // No images: show placeholder and remove slider
-      if (images.length === 0) {
-        slider.remove();
-        placeholder.style.display = 'flex';
-      }
-
-      // One image: keep the image, hide navigation
-      if (images.length <= 1) {
-        nav.remove();
+      // Handle structural visibility flags
+      if (imageCount === 0) {
+        if (slider) slider.remove();
+        if (nav) nav.remove();
+        if (placeholder) placeholder.style.display = 'flex';
+      } else if (imageCount === 1) {
+        if (nav) nav.remove();
+        if (placeholder) placeholder.style.display = 'none';
+      } else {
+        if (placeholder) placeholder.style.display = 'none';
       }
 
       gridContainer.appendChild(card);
     });
 
-    // Add custom sourcing card to the relevant category
-    if (
-      catBlock.category === 'Hot Peppers & Aromatics' &&
-      sourcingTemplate
-    ) {
+    if (catBlock.category === 'Hot Peppers & Aromatics' &&
+       sourcingTemplate
+      ) {
       const customCard = sourcingTemplate.content
         .firstElementChild.cloneNode(true);
-
       gridContainer.appendChild(customCard);
     }
 
@@ -185,9 +186,69 @@ function renderCatalog() {
     catalogRoot.appendChild(catSection);
   });
 
-  // Initialize sliders and image fallbacks AFTER rendering
   initializeCatalogSliders(catalogRoot);
-  initializeCatalogImageFallbacks(catalogRoot);
+  if (typeof initializeCatalogImageFallbacks === 'function') {
+    initializeCatalogImageFallbacks(catalogRoot);
+  }
+}
+
+
+//Buttons and arrows script
+function initializeCatalogSliders(container) {
+  if (!container) return;
+  const cards = container.querySelectorAll('.gallery-card');
+
+  cards.forEach(card => {
+    const track = card.querySelector('.slider-track');
+    const dots = card.querySelectorAll('.slider-dot');
+    
+    if (!track || dots.length <= 1) return;
+
+    let currentIndex = 0;
+    const maxIndex = track.children.length - 1;
+    let autoSlideInterval = null;
+
+    function updateSlider(index) {
+      currentIndex = index;
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentIndex);
+      });
+    }
+
+    function nextSlide() {
+      let targetIndex = currentIndex + 1;
+      if (targetIndex > maxIndex) targetIndex = 0; // Loop back to the start
+      updateSlider(targetIndex);
+    }
+
+    // Start the automatic rotation (3000ms = 3 seconds)
+    function startAutoSlide() {
+      stopAutoSlide(); // Safety reset
+      autoSlideInterval = setInterval(nextSlide, 3000);
+    }
+
+    function stopAutoSlide() {
+      if (autoSlideInterval) clearInterval(autoSlideInterval);
+    }
+
+    // Dot click controls
+    dots.forEach((dot, idx) => {
+      dot.onclick = (e) => {
+        e.preventDefault();
+        updateSlider(idx);
+        startAutoSlide(); // Reset timer on manual selection
+      };
+    });
+
+    // Run auto-sliding routine right away
+    startAutoSlide();
+
+    // Optional: Pause loop when user rests cursor over a product card
+    card.addEventListener('mouseenter', stopAutoSlide);
+    card.addEventListener('mouseleave', startAutoSlide);
+  });
 }
 
 document.addEventListener('DOMContentLoaded', () => {

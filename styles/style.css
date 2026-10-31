@@ -503,6 +503,106 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   outline:2px solid var(--brass); outline-offset:3px;
 }
 
+
+/* Card container clipping boundaries */
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Linear horizontal layout container */
+.slider-track {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  width: 100%;
+}
+
+/* Forces individual images to span full width layout without warping dimensions */
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.slide img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+
+
+
+
+
+
+/* Container that holds the dots directly below the image */
+.gallery-card .slider-nav {
+  display: flex;
+  justify-content: center; /* This explicitly centers the buttons layout */
+  align-items: center;
+  padding: 10px 0;          /* Space between image container and text title */
+  margin: 0;
+  width: 100%;   
+  text-align: center;          /* Spans across full width framework */
+}
+
+.gallery-card .card-nav-overlay {
+  display: flex;
+  justify-content: center; /* This explicitly centers the buttons layout */
+  align-items: center;
+  /* border: 2px solid pink */
+}
+
+/* Individual dots flexing behavior */
+.gallery-card .slider-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;                /* Gap spacing layout between tiny round dots */
+}
+
+/* Base style setup configuration for your circular navigational indicators */
+.gallery-card .slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #cbd5e1; /* Off gray inactive shade color state */
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+/* Active current slide highlighting color */
+.gallery-card .slider-dot.active {
+  width: 16px;
+  /* height: 9px; */
+  border-radius: 15px;
+  background-color: #0f3f1b; /* Dark charcoal active visual indicator */
+  transform: scale(1.15);    /* Slightly pops active item visually */
+}
+
+.gallery-card .slider-track-wrap, .slider, .image-wrapper, .slide {
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-card .slider-track, img  {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.gallery-card .slide {
+  padding: 0px
+}
+
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
@@ -530,3 +630,4 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .compare-table{ font-size:13px; }
   .compare-table th, .compare-table td{ padding:12px 10px; }
 }
+
