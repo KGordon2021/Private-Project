@@ -48,8 +48,8 @@
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <span class="eyebrow">Farm-Gate Sourcing · Worldwide Fresh Produce Export</span>
-      <h1 class="h-xl">Premium produce,<br>delivered <em>fresh.</em></h1>
-      <p class="lede">We source high-quality Jamaican agricultural produce directly from farmers just 1 to 2 days before export, managing the entire grading, washing, and packaging process so your cargo arrives with maximum market shelf-life.</p>
+      <h1 class="h-xl">Premium Jamaican produce,<br>delivered <em>fresh.</em></h1>
+      <p class="lede">We connect international buyers with premium Jamaican agricultural produce, providing reliable sourcing, quality assurance, professional export coordination and dependable shipping solutions.</p>
     <div class="hero-actions">
       <a href="products.html#quote" class="btn btn-primary">
       Get a Quote
@@ -59,32 +59,65 @@
     </div>
   </div>
 
-    <div class="hero-visual reveal">
-      <div class="route-card">
-        <div class="route-card-head">
-          <span class="from-to">JM → CN</span>
+    <!-- RIGHT COLUMN: Multi-image background container + routing card combo -->
+  <div class="hero-visual-side reveal">
+    
+    <!-- NEW CONTENT: Seamless sliding image layer stacks inside your container frame -->
+    <div class="hero-bg-layer bg-yam"></div>
+    <div class="hero-bg-layer bg-mango"></div>
+    <div class="hero-bg-layer bg-sweet-potato_1"></div>
+    
+    <div class="route-card">
+      <!-- Keep everything inside your current .route-card code exactly the same -->
+      <div class="route-card-head">
+        <div class="dynamic-text-loop text-fade-loop">
+          <span class="from-to">
+            <span>KIN → YYZ</span>
+            <span>KIN → JFK</span>
+            <span>MBJ → LHR</span>
+          </span>
           <span class="status">In transit</span>
         </div>
-        <svg class="route-svg" viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
-          <path id="lane" class="route-path" d="M30 120 C 100 40, 200 160, 370 50"/>
-          <path class="route-progress" d="M30 120 C 100 40, 200 160, 370 50"/>
-          <circle class="route-port origin" cx="30" cy="120" r="5"/>
-          <circle class="route-pulse" cx="30" cy="120" r="4"/>
-          <circle class="route-port" cx="370" cy="50" r="5"/>
-          <circle class="route-pulse" cx="370" cy="50" r="4" style="animation-delay:1.6s"/>
-          <g class="route-ship" style="offset-path:path('M30 120 C 100 40, 200 160, 370 50'); offset-rotate:0deg;">
-            <circle cx="0" cy="0" r="4.5" fill="#EDEAE2"/>
-          </g>
-        </svg>
-        <div class="route-meta">
-          <span>Aircraft <b>Air Canada</b></span>
-          <span>ETA <b>1 DAY</b></span>
-          <span># of Items <b>150 boxes</b></span>
+      </div>
+      
+      <svg class="route-svg" viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
+        <path id="lane" class="route-path" d="M30 120 C 100 40, 200 160, 370 50"/>
+        <path class="route-progress" d="M30 120 C 100 40, 200 160, 370 50"/>
+        <circle class="route-port origin" cx="30" cy="120" r="5"/>
+        <circle class="route-pulse" cx="30" cy="120" r="4"/>
+        <circle class="route-port" cx="370" cy="50" r="5"/>
+        <circle class="route-pulse" cx="370" cy="50" r="4" style="animation-delay:1.6s"/>
+        <g class="route-ship" style="offset-path:path('M30 120 C 100 40, 200 160, 370 50'); offset-rotate:0deg;">
+          <circle cx="0" cy="0" r="4.5" fill="#EDEAE2"/>
+        </g>
+      </svg>
+      
+      <div class="route-meta">
+        <div class="dynamic-meta-loop meta-fade-loop">
+          <div class="meta-row">
+            <span>Carrier <b>Air Canada Cargo</b></span>
+            <span>Transit <b>&lt; 24 HRS</b></span>
+            <span>Cargo <b>1,500 kg (YellowYams)</b></span>
+          </div>
+          <div class="meta-row">
+            <span>Carrier <b>Caribbean Airlines</b></span>
+            <span>Transit <b>&lt; 4 HRS</b></span>
+            <span>Cargo <b>800 kg (East Indian Mangoes)</b></span>
+          </div>
+          <div class="meta-row">
+            <span>Carrier <b>British Airways</b></span>
+            <span>Transit <b>&lt; 10 HRS</b></span>
+            <span>Cargo <b>1,200 kg (Sweet Potatoes)</b></span>
+          </div>
         </div>
       </div>
-    </div>
+    </div> <!-- End route-card -->
+  </div>
+
   </div>
 </header>
+
+
 
 <!-- ============ TICKER ============ -->
 <section class="ticker-strip" style="padding:26px 0;">
@@ -267,7 +300,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">How a shipment moves</span>
-      <h2 class="h-lg">From quote to takeoff, in four steps.</h2>
+      <h2 class="h-lg">From Farm to Flight Deck: Guaranteed Freshness in 48 Hours.</h2>
     </div>
     <div class="process reveal-stagger">
       <div class="process-step">
