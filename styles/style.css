@@ -463,9 +463,28 @@ footer{ background:var(--navy); border-top:1px solid var(--steel); color:var(--m
 
 /* page sub-hero (about / products) */
 .sub-hero{
-  background:var(--navy); color:var(--fog); padding:170px 0 90px; position:relative; overflow:hidden;
+  background:var(--navy); color:var(--fog); padding:170px 0 90px; position:relative; overflow:hidden; z-index:1;
 }
 .sub-hero-grid{ display:grid; grid-template-columns:1.3fr .7fr; gap:50px; align-items:end; }
+
+/* ==========================================================================
+   PRODUCTS PAGE EXCLUSIVE OVERRIDES
+   ========================================================================== */
+.sub-hero--products::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  background-size: cover;
+  background-position: center;
+  
+  /* Blends your produce photo into the background color with a gradient vignette */
+  background-image: linear-gradient(to right, rgba(14, 49, 26, 0.45), rgba(14, 49, 26, 0.85)), url('../images/product_page_bg.jpg'); /* Update path to your hero image */
+}
 
 /* stats strip generic */
 .stat-block{ text-align:left; }
@@ -513,7 +532,8 @@ footer{ background:var(--navy); border-top:1px solid var(--steel); color:var(--m
 /* 2. Controls individual card surfaces & interactions */
 #export-catalog-gallery .gallery-card {
   background: #ffffff;
-  border: 1px solid var(--steel, #e2e8f0);
+  border: 1px solid rgba(14, 49, 26, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
   padding: 20px;
   display: flex;
