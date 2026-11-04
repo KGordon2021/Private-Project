@@ -450,8 +450,9 @@ footer{ background:var(--navy); border-top:1px solid var(--steel); color:var(--m
   padding: 24px;
   box-sizing: border-box;
 }
-
-
+#contact-form{
+  scroll-margin-top: 280px; /* Ensures the section is fully visible when linked to */
+}
 
 /* comparison table (products) */
 .compare-table{ width:100%; border-collapse:collapse; font-size:14.5px; }

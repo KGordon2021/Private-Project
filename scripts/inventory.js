@@ -22,6 +22,11 @@ const exportInventory = [
           title: "Dasheen",
           desc: "Firm, pristine roots harvested precisely to order for extended market shelf-life.",
           images: ["images/dasheen.jpg", "images/dasheen_1.jpg"]
+        },
+        {
+          title: "Red Coco",
+          desc: "Firm, pristine roots harvested precisely to order for extended market shelf-life.",
+          images: ["images/red_coco_1.jpg"]
         }
       ]
     },
@@ -31,8 +36,7 @@ const exportInventory = [
         {
           title: "Breadfruit",
           desc: "High-urgency air freight item handled under rapid temperature-regulated cold lines.",
-          images: ["images/breadfruit.jpg"]
-        },
+          images: ["images/breadfruit_1.jpg", "images/breadfruit_2.jpg"]     },
         {
           title: "East Indian Mangoes",
           desc: "Sourced at optimal pre-ripeness window and cushioned carefully to prevent bruising.",
@@ -41,7 +45,7 @@ const exportInventory = [
         {
           title: "Julie Mangoes",
           desc: "Sourced at optimal pre-ripeness window and cushioned carefully to prevent bruising.",
-          images: ["images/julie_mangoes.jpg"] 
+          images: ["images/julie_mangoes.jpg", "images/julie_mangoes_1.jpg"] 
         },
         {
           title: "Starapple",
@@ -51,7 +55,7 @@ const exportInventory = [
         {
           title: "Naseberry",
           desc: "Carefully nested inside single-layer ventilated packaging optimized for altitude pressure.",
-          images: ["images/naseberry.jpg"]
+          images: ["images/naseberry_1.jpg", "images/naseberry_2.jpg"]
         },
         {
           title: "Callaloo",
