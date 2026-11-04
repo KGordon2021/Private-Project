@@ -22,7 +22,7 @@
   --f-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --f-mono:    'JetBrains Mono', 'IBM Plex Mono', monospace;
 
-  --container: 1220px;
+  --container: 1440px;
   --radius: 6px;
   --ease: cubic-bezier(.22,.68,.36,1);
 }
@@ -51,7 +51,7 @@ button{ font-family:inherit; cursor:pointer; }
 h1,h2,h3,h4{ margin:0; font-family:var(--f-display); font-weight:400; letter-spacing:.01em; }
 p{ margin:0; }
 
-.wrap{ max-width:var(--container); margin:0 auto; padding:0 32px; }
+.wrap{ max-width:var(--container); margin:0 auto; padding:0 16px; }
 
 .eyebrow{
   display:inline-flex; align-items:center; gap:10px;
@@ -91,7 +91,7 @@ p{ margin:0; }
    NAV
    ========================================================================== */
 .site-nav{
-  position:fixed; top:0; left:0; right:0; z-index:100;
+  position:fixed; top:0; left:0; width:100%; z-index:100;
   padding:20px 0;
   background:linear-gradient(to bottom, rgba(11, 46, 23, 0.92), rgba(11, 46, 21, 0));
   transition:background .35s var(--ease), padding .35s var(--ease), box-shadow .35s;
@@ -103,13 +103,13 @@ p{ margin:0; }
   box-shadow:0 8px 24px rgba(0,0,0,.25);
   border-bottom:1px solid rgba(217,162,74,.15);
 }
-.nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:24px 16px; }
 .brand{ display:flex; align-items:center; gap:10px; }
 .brand-mark{ width:34px; height:34px; flex:none; }
 .brand-name{ font-family:var(--f-display); font-size:22px; letter-spacing:.03em; color:var(--fog); }
 .brand-tag{ display:block; font-family:var(--f-mono); font-size:9.5px; letter-spacing:.18em; color:var(--brass); margin-top:-2px; }
 
-.nav-links{ display:flex; align-items:center; gap:36px; }
+.nav-links{ display:flex; gap:32px; }
 .nav-links a{
   font-family:var(--f-mono); font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;
   color:var(--mist); position:relative; padding:6px 0;
@@ -121,7 +121,7 @@ p{ margin:0; }
 .nav-links a:hover, .nav-links a.active{ color:var(--fog); }
 .nav-links a:hover::after, .nav-links a.active::after{ width:100%; }
 
-.nav-cta{ display:flex; align-items:center; gap:18px; }
+.nav-cta{ display:flex; align-items:center; gap:16px; }
 .nav-toggle{
   display:none; flex-direction:column; gap:5px; background:none; border:0; padding:6px;
 }
@@ -145,41 +145,197 @@ p{ margin:0; }
    ========================================================================== */
 .hero{
   position:relative; background:var(--navy); color:var(--fog);
-  padding:168px 0 90px; overflow:hidden;
+  padding:150px 0 40px; overflow:hidden;
   background-image:
     radial-gradient(ellipse 900px 500px at 85% 8%, rgba(217,162,74,.10), transparent 60%),
     radial-gradient(ellipse 700px 500px at 5% 100%, rgba(42,81,112,.35), transparent 60%);
 }
-.hero-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:60px; align-items:center; }
+.hero-grid{ 
+  display:grid; 
+  grid-template-columns:1.1fr .9fr; 
+  gap:50px; 
+  align-items:center; }
+  /* ==========================================================================
+   HERO CONTAINER SPACING OPTIMIZATIONS
+   ========================================================================== */
+/* NEW RULE: Overrides standard section widths to pull content closer to the screen edges */
+.hero-wrap {
+  max-width: 1340px !important; /* Forces the structural grid boundaries to expand horizontally */
+  width: 92%; /* Generates a crisp, safe safety buffer for edge alignment padding */
+  margin: 0 auto; /* Keeps the wide container perfectly balanced in the viewport center */
+  border-color:black
+}
+
+/* OPTIONAL POLISH: If your left column text feels a tiny bit too close to the layout line */
+.hero-copy {
+  padding-right: 20px; /* Builds a slight visual separator before the central gap grid */
+}
+
 .hero-copy .eyebrow{ margin-bottom:22px; }
 .hero-copy h1{ margin-bottom:22px; }
 .hero-copy h1 em{ font-style:normal; color:var(--brass); }
 .hero-copy .lede{ margin-bottom:34px; }
 .hero-actions{ display:flex; gap:16px; flex-wrap:wrap; }
 
-.hero-visual{ position:relative; }
-.route-card{
-  background:rgba(15,42,63,.6); border:1px solid var(--steel);
-  border-radius:8px; padding:26px 22px 20px; backdrop-filter:blur(4px);
+/* ==========================================================================
+   DYNAMIC MULTI-IMAGE HERO BACKGROUND SLIDER
+   ========================================================================== */
+.hero-visual-side { 
+  position: relative; 
+  padding: 55px 45px; 
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Keeps background layers clipped inside rounded corners */
 }
+
+/* Layer styling definitions */
+.hero-bg-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  z-index: 1; /* Sits behind card content */
+  opacity: 0;
+  /* Syncs perfectly with your 12-second master text slide loop */
+  animation: backgroundFadeLoop 12s ease-in-out infinite;
+}
+
+/* Assign images and linear gradient tints to each custom class */
+.bg-yam {
+  background: linear-gradient(rgba(15, 42, 63, 0.55), rgba(15, 42, 63, 0.65)), 
+              url('../images/yellow_yam_1.jpg') no-repeat center center;
+  background-size: cover;
+  animation-delay: 0s;
+}
+
+.bg-mango {
+  background: linear-gradient(rgba(15, 42, 63, 0.55), rgba(15, 42, 63, 0.65)), 
+              url('../images/east_indian_mangoes_1.jpg') no-repeat center center; /* Update path to your mango photo */
+  background-size: cover;
+  animation-delay: 4s;
+}
+
+.bg-sweet-potato_1 {
+  background: linear-gradient(rgba(15, 42, 63, 0.55), rgba(15, 42, 63, 0.65)), 
+              url('../images/sweet_potato_1.jpg') no-repeat center center; /* Update path to your sweet potato photo */
+  background-size: cover;
+  animation-delay: 8s;
+}
+
+/* Ensure the text card stays stacked cleanly on top of the backgrounds */
+.route-card {
+  position: relative;
+  z-index: 2; 
+  background: rgba(10, 30, 45, 0.65); /* Made slightly more sheer for maximum backdrop visibility */
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px; 
+  padding: 26px 22px 20px; 
+  backdrop-filter: blur(8px); 
+  width: 100%; 
+  -webkit-backdrop-filter: blur(8px);
+  box-sizing: border-box;
+}
+
+/* Timing sequences to hold opacity for 4 seconds then transition smoothly */
+@keyframes backgroundFadeLoop {
+  0%, 28% { opacity: 1; }
+  33%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+.sub-hero-copy h1 em{ font-style:normal; color:var(--brass); }
+/* ==========================================================================
+   ROUTE CARD - MULTI-MARKET ANIMATION CODES
+   ========================================================================== */
 .route-card-head{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:14px; font-family:var(--f-mono); }
-.route-card-head .from-to{ font-size:13px; color:var(--fog); letter-spacing:.04em; }
+
+/* UPDATED: Setup sliding track layout for from-to values */
+.route-card-head .from-to { 
+  font-size:13px; 
+  color:var(--fog); 
+  letter-spacing:.04em; 
+  height: 1.5em;
+  overflow: hidden;
+  display: inline-flex;
+  flex-direction: column;
+}
+.route-card-head .from-to span {
+  display: block;
+  height: 1.5em;
+  line-height: 1.5em;
+  animation: slideText 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
 .route-card-head .status{ font-size:10.5px; color:var(--brass); letter-spacing:.1em; text-transform:uppercase; }
 .route-card-head .status::before{ content:"●"; margin-right:6px; font-size:8px; color:#5FBE7A; }
 
 .route-svg{ width:100%; height:auto; display:block; }
 .route-path{ fill:none; stroke:var(--steel-2); stroke-width:1.5; stroke-dasharray:5 6; }
-.route-progress{ fill:none; stroke:var(--brass); stroke-width:1.5; stroke-dasharray:600; stroke-dashoffset:600; animation:draw 3.4s var(--ease) infinite; }
+.route-progress{ fill:none; stroke:var(--brass); stroke-width:1.5; stroke-dasharray:600; stroke-dashoffset:600; animation:draw 4s var(--ease) infinite; }
 @keyframes draw{ 0%{ stroke-dashoffset:600; } 55%{ stroke-dashoffset:0; } 100%{ stroke-dashoffset:0; } }
 .route-port{ fill:var(--fog); }
 .route-port.origin{ fill:var(--brass); }
-.route-pulse{ fill:none; stroke:var(--brass); stroke-width:1.5; opacity:0; transform-origin:center; animation:pulse 3.4s var(--ease) infinite; }
+.route-pulse{ fill:none; stroke:var(--brass); stroke-width:1.5; opacity:0; transform-origin:center; animation:pulse 4s var(--ease) infinite; }
 @keyframes pulse{ 0%,50%{ opacity:0; r:4; } 60%{ opacity:.9; } 100%{ opacity:0; r:15; } }
-.route-ship{ animation:ship-move 3.4s var(--ease) infinite; }
+.route-ship{ animation:ship-move 4s var(--ease) infinite; }
 @keyframes ship-move{ 0%{ offset-distance:0%; opacity:0; } 4%{ opacity:1; } 55%{ offset-distance:100%; opacity:1;} 60%{opacity:0;} 100%{ offset-distance:100%; opacity:0; } }
 
-.route-meta{ display:flex; justify-content:space-between; margin-top:18px; font-family:var(--f-mono); font-size:11px; color:var(--mist); border-top:1px dashed var(--steel); padding-top:14px; }
+/* UPDATED: Absolute container stack for meta details */
+.route-meta { 
+  margin-top:22px; 
+  font-family:var(--f-mono); 
+  font-size:10px; 
+  color:var(--mist); 
+  border-top:1px dashed var(--steel); 
+  padding-top:16px; 
+  position: relative;
+  height: 16px; /* Holds card dimensions firm */
+}
 .route-meta b{ color:var(--fog); font-weight:500; }
+
+/* NEW LAYOUT RULES: Stacking rows safely */
+.meta-row {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  white-space: nowrap; /* CRITICAL FEATURE: Forces the text to stay on one single line */
+  gap: 12px; /* Standardizes space buffers between items */
+  opacity: 0;
+  pointer-events: none;
+  animation: fadeMeta 12s ease-in-out infinite;
+}
+
+/* Delay configurations for multi-market sequencing */
+.meta-row:nth-child(1) { animation-delay: 0s; }
+.meta-row:nth-child(2) { animation-delay: 4s; }
+.meta-row:nth-child(3) { animation-delay: 8s; }
+
+/* ==========================================================================
+   LOOP TIMINGS (12-Second Master Loop: 4s CA -> 4s US -> 4s UK)
+   ========================================================================== */
+@keyframes slideText {
+  0%, 28% { transform: translateY(0); }
+  33%, 61% { transform: translateY(-1.5em); }
+  66%, 95% { transform: translateY(-3.0em); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes fadeMeta {
+  0%, 28% { opacity: 1; pointer-events: auto; }
+  33%, 100% { opacity: 0; pointer-events: none; }
+}
+
 
 /* ticker */
 .ticker-strip{
@@ -307,9 +463,28 @@ footer{ background:var(--navy); border-top:1px solid var(--steel); color:var(--m
 
 /* page sub-hero (about / products) */
 .sub-hero{
-  background:var(--navy); color:var(--fog); padding:170px 0 90px; position:relative; overflow:hidden;
+  background:var(--navy); color:var(--fog); padding:170px 0 90px; position:relative; overflow:hidden; z-index:1;
 }
 .sub-hero-grid{ display:grid; grid-template-columns:1.3fr .7fr; gap:50px; align-items:end; }
+
+/* ==========================================================================
+   PRODUCTS PAGE EXCLUSIVE OVERRIDES
+   ========================================================================== */
+.sub-hero--products::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  background-size: cover;
+  background-position: center;
+  
+  /* Blends your produce photo into the background color with a gradient vignette */
+  background-image: linear-gradient(to right, rgba(14, 49, 26, 0.45), rgba(14, 49, 26, 0.85)), url('../images/product_page_bg.jpg'); /* Update path to your hero image */
+}
 
 /* stats strip generic */
 .stat-block{ text-align:left; }
@@ -357,7 +532,8 @@ footer{ background:var(--navy); border-top:1px solid var(--steel); color:var(--m
 /* 2. Controls individual card surfaces & interactions */
 #export-catalog-gallery .gallery-card {
   background: #ffffff;
-  border: 1px solid var(--steel, #e2e8f0);
+  border: 1px solid rgba(14, 49, 26, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
   padding: 20px;
   display: flex;
@@ -630,5 +806,196 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .cta-band-inner{ flex-direction:column; align-items:flex-start; }
   .compare-table{ font-size:13px; }
   .compare-table th, .compare-table td{ padding:12px 10px; }
+}
+
+
+/* ==========================================================================
+   HERO RESPONSIVE REFINEMENTS
+   ========================================================================== */
+
+@media (max-width: 1020px) {
+
+  .hero {
+    padding: 125px 0 55px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .hero-copy {
+    padding-right: 0;
+  }
+
+  .hero-visual-side {
+    width: 100%;
+    max-width: 650px;
+    min-height: 350px;
+    margin: 0 auto;
+    padding: 40px 35px;
+  }
+
+  .route-card {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   TABLET AND MOBILE
+   ========================================================================== */
+
+@media (max-width: 680px) {
+
+  .hero {
+    padding: 110px 0 45px;
+  }
+
+  .hero-grid {
+    gap: 35px;
+  }
+
+  .hero-copy {
+    padding-right: 0;
+  }
+
+  .hero-copy .eyebrow {
+    font-size: 10px;
+    letter-spacing: .12em;
+    line-height: 1.8;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(40px, 10vw, 58px);
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+
+  .hero-copy .lede {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 26px;
+  }
+
+  .hero-actions {
+    gap: 12px;
+  }
+
+  .hero-actions .btn {
+    min-height: 48px;
+  }
+
+  .hero-visual-side {
+    min-height: 285px;
+    padding: 24px 14px;
+    border-radius: 10px;
+  }
+
+  .route-card {
+    padding: 22px 15px 20px;
+  }
+
+  .route-card-head .from-to {
+    font-size: 11px;
+  }
+
+  .route-card-head .status {
+    font-size: 9px;
+  }
+
+  .route-meta {
+    margin-top: 15px;
+    padding-top: 12px;
+    height: auto;
+    min-height: 36px;
+  }
+
+  .meta-row {
+    top: 12px;
+    flex-wrap: wrap;
+    white-space: normal;
+    gap: 6px 10px;
+    font-size: 9px;
+  }
+}
+
+/* ==========================================================================
+   SMALL MOBILE DEVICES
+   ========================================================================== */
+
+@media (max-width: 400px) {
+
+  .hero {
+    padding-top: 100px;
+  }
+
+  .hero-copy h1 {
+    font-size: 39px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-visual-side {
+    min-height: 260px;
+    padding: 18px 10px;
+  }
+
+  .route-card {
+    padding: 18px 12px;
+  }
+
+  .meta-row {
+    font-size: 8px;
+  }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY: REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-bg-layer,
+  .route-card-head .from-to span,
+  .meta-row,
+  .route-progress,
+  .route-pulse,
+  .route-ship {
+    animation: none !important;
+  }
+
+  .hero-bg-layer {
+    opacity: 0;
+  }
+
+  .hero-bg-layer.bg-yam {
+    opacity: 1;
+  }
+
+  .route-card-head .from-to span {
+    transform: none;
+  }
+
+  .meta-row {
+    display: none;
+  }
+
+  .meta-row:first-child {
+    display: flex;
+    opacity: 1;
+  }
+
+  .route-progress {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+  }
 }
 
